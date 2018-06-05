@@ -8,23 +8,29 @@ bool Jatekos::hajoBeker(int db){
 	int besor, beoszlop;
 	bool helyes;
 	char pozicio[3], betuoszlop;
-	cout << "Adja meg a(z)" << db + 1 << ". hajo poziciojat: ";
+	cout << "Adja meg a(z) " << db + 1 << ". hajo poziciojat: ";
 	cin >> pozicio;
 	if (strlen(pozicio) == 2 && (pozicio[0] == 'A' || pozicio[0] == 'B' || pozicio[0] == 'C' || pozicio[0] == 'D' || pozicio[0] == 'E' || pozicio[0] == 'F' || pozicio[0] == 'G' || pozicio[0] == 'H'
 		|| pozicio[0] == 'I' || pozicio[0] == 'J') && isdigit(pozicio[1])){
 		betuoszlop = pozicio[0];
 		beoszlop = oszlopAlakito(betuoszlop);
-		
+		besor = pozicio[1] - '0';
+		hajok[db].setOszlop(beoszlop);
+		hajok[db].setSor(besor);
+		//cout <<hajok[db].getOszlop();
+		//cout << hajok[db].getSor()<<"\n";
+		if (tabla->setTabla(beoszlop, besor)){
+
+		}
+		else{
+			return false;
+		}
 	}
-	else return false;
-	/*betuoszlop = pozicio[0];
-	helyes=ellenorzes(pozicio);
-	if(!helyes) return false;
 	else{
-	beoszlop=oszlopAlakito(betuoszlop);
-	besor=pozicio[1]-'0';
-	return true;
-	}*/
+		cout << "Nem megfelelo formatum probalja ujra.\n\n";
+		return false;
+	}
+	
 
 }
 
@@ -35,7 +41,6 @@ bool ellenorzes(char pozicio[]){
 	}
 	return false;
 }
-
 
 int Jatekos::oszlopAlakito(char betuoszlop){
 	if (betuoszlop == 'A') return 0;
@@ -49,5 +54,10 @@ int Jatekos::oszlopAlakito(char betuoszlop){
 	else if (betuoszlop == 'I') return 8;
 	else if (betuoszlop == 'J') return 9;
 }
+
+void Jatekos::tablatRajzol(){
+	tabla->kiRajzol();
+}
+
 
 Jatekos::~Jatekos(){}

@@ -13,8 +13,8 @@ public:
 	Tabla(int meret);
 	~Tabla();
 	void kiRajzol();
-	//bool setTabla(int oszlop, int sor, char irany, int meret);
-	//int becsapodas(int oszlop, int sor);
+	bool setTabla(int oszlop, int sor);
+	
 };
 
 #endif

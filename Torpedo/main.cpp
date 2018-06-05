@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <string>
 #include "Jatekos.hpp"
 
@@ -11,11 +12,15 @@ int main(){
 	cout << "Adja meg a jatekos nevet: ";
 	cin >> nev;
 	Jatekos jatekos1(nev);
-	do{
-		jatekos1.hajoBeker(db);
-	} while (db<15);
+	do{		
+		if (jatekos1.hajoBeker(db)){
+			db++;
+		}
+	} while (db<5); //10re visszaírni
+	system("cls");
+	jatekos1.tablatRajzol();
 
-		return 0;
+	return 0;
 
 
 }

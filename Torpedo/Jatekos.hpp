@@ -20,6 +20,7 @@ public:
 	bool hajoBeker(int db);
 	bool ellenorzes(char *pozicio);
 	int oszlopAlakito(char betuoszlop);
+	void tablatRajzol();
 
 };
 
