@@ -1,13 +1,15 @@
 #include "Jatekos.hpp"
 
 Jatekos::Jatekos(string nev) :nev(nev){
-	tabla = new Tabla(10);	
+	sajattabla = new Tabla(10);
+	ellenfeltabla = new Tabla(10);
 }
 
 bool Jatekos::hajoBeker(int db){
 	int besor, beoszlop;
 	bool helyes;
-	char pozicio[3], betuoszlop;
+	char pozicio[3], betuoszlop;	
+	
 	cout << "Adja meg a(z) " << db + 1 << ". hajo poziciojat: ";
 	cin >> pozicio;
 	if (strlen(pozicio) == 2 && (pozicio[0] == 'A' || pozicio[0] == 'B' || pozicio[0] == 'C' || pozicio[0] == 'D' || pozicio[0] == 'E' || pozicio[0] == 'F' || pozicio[0] == 'G' || pozicio[0] == 'H'
@@ -19,7 +21,7 @@ bool Jatekos::hajoBeker(int db){
 		hajok[db].setSor(besor);
 		//cout <<hajok[db].getOszlop();
 		//cout << hajok[db].getSor()<<"\n";
-		if (tabla->setTabla(beoszlop, besor)){
+		if (sajattabla->setTabla(beoszlop, besor)){
 
 		}
 		else{
@@ -30,8 +32,6 @@ bool Jatekos::hajoBeker(int db){
 		cout << "Nem megfelelo formatum probalja ujra.\n\n";
 		return false;
 	}
-	
-
 }
 
 bool ellenorzes(char pozicio[]){
@@ -55,8 +55,58 @@ int Jatekos::oszlopAlakito(char betuoszlop){
 	else if (betuoszlop == 'J') return 9;
 }
 
-void Jatekos::tablatRajzol(){
-	tabla->kiRajzol();
+void Jatekos::sajatTablatRajzol(){
+	sajattabla->kiRajzol();
+}
+
+void Jatekos::ellenfelTablatRajzol(){
+	ellenfeltabla->kiRajzol();
+}
+
+int Jatekos::getHajoOszlop(int db){
+	return hajok[db].getOszlop();
+}
+
+int Jatekos::getHajoSor(int db){
+	return hajok[db].getSor();
+}
+
+void Jatekos::hajokatMasol(Jatekos ellenfel, int db){
+	for (int i = 0; i<db; i++){
+		ellenfelhajok[i].setSor(ellenfel.getHajoSor(i));
+		ellenfelhajok[i].setOszlop(ellenfel.getHajoOszlop(i));
+	}
+}
+
+void Jatekos::kiirEllen(int db){
+for(int i=0; i<db;i++){
+cout <<ellenfelhajok[i].getOszlop()<<"  "<<ellenfelhajok[i].getSor()<<'\n';
+}
+}
+
+bool Jatekos::loves(int db){
+	char celpont[3], betuoszlop;
+	int sor, oszlop;
+	cout << "Adja meg a celpontot: ";
+	cin >> celpont;
+	if (strlen(celpont) == 2 && (celpont[0] == 'A' || celpont[0] == 'B' || celpont[0] == 'C' || celpont[0] == 'D' || celpont[0] == 'E' || celpont[0] == 'F' || celpont[0] == 'G' || celpont[0] == 'H'
+		|| celpont[0] == 'I' || celpont[0] == 'J') && isdigit(celpont[1])){
+		betuoszlop = celpont[0];
+		oszlop = oszlopAlakito(betuoszlop);
+		sor = celpont[1] - '0';
+		if (ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db)){
+			return true;
+		}
+		else{
+			return false;
+		}
+
+
+	}
+	else{
+		cout << "Ervenytelen formatum.\n\n";
+		return false;
+	}
 }
 
 

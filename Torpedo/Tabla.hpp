@@ -2,6 +2,7 @@
 #define TABLA_HPP
 
 #include <iostream>
+#include "Hajo.hpp"
 using namespace std;
 
 class Tabla{
@@ -14,7 +15,8 @@ public:
 	~Tabla();
 	void kiRajzol();
 	bool setTabla(int oszlop, int sor);
-	
+	bool becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db);
+
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 #include "Tabla.hpp"
 #include "Hajo.hpp"
 using namespace std;
@@ -11,8 +12,10 @@ using namespace std;
 class Jatekos{
 private:
 	string nev;
-	Tabla *tabla;
+	Tabla *sajattabla;
 	Hajo hajok[10];
+	Tabla *ellenfeltabla;
+	Hajo ellenfelhajok[10];
 
 public:
 	Jatekos(string nev);
@@ -20,7 +23,15 @@ public:
 	bool hajoBeker(int db);
 	bool ellenorzes(char *pozicio);
 	int oszlopAlakito(char betuoszlop);
-	void tablatRajzol();
+	void sajatTablatRajzol();
+	void ellenfelTablatRajzol();
+	bool loves(int db);
+	void hajokatMasol(Jatekos ellenfel, int db);
+	int getHajoSor(int db);
+	int getHajoOszlop(int db);
+	//teszteléshez kellet, véglegesben nem kell kiíratni
+	void kiirEllen(int db);
+
 
 };
 
