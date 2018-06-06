@@ -3,14 +3,18 @@
 Jatekos::Jatekos(string nev) :nev(nev){
 	sajattabla = new Tabla(10);
 	ellenfeltabla = new Tabla(10);
+	talalat = 0;
+}
+
+string Jatekos::nevKiir(){
+	return nev;
 }
 
 bool Jatekos::hajoBeker(int db){
-	int besor, beoszlop;
-	bool helyes;
-	char pozicio[3], betuoszlop;	
+	int besor, beoszlop;	
+	char pozicio[10], betuoszlop;	
 	
-	cout << "Adja meg a(z) " << db + 1 << ". hajo poziciojat: ";
+	cout << "Adja meg a(z) " << db+1 << ". hajo poziciojat: ";
 	cin >> pozicio;
 	if (strlen(pozicio) == 2 && (pozicio[0] == 'A' || pozicio[0] == 'B' || pozicio[0] == 'C' || pozicio[0] == 'D' || pozicio[0] == 'E' || pozicio[0] == 'F' || pozicio[0] == 'G' || pozicio[0] == 'H'
 		|| pozicio[0] == 'I' || pozicio[0] == 'J') && isdigit(pozicio[1])){
@@ -22,7 +26,7 @@ bool Jatekos::hajoBeker(int db){
 		//cout <<hajok[db].getOszlop();
 		//cout << hajok[db].getSor()<<"\n";
 		if (sajattabla->setTabla(beoszlop, besor)){
-
+			return true;
 		}
 		else{
 			return false;
@@ -77,15 +81,15 @@ void Jatekos::hajokatMasol(Jatekos ellenfel, int db){
 		ellenfelhajok[i].setOszlop(ellenfel.getHajoOszlop(i));
 	}
 }
-
+/*
 void Jatekos::kiirEllen(int db){
 for(int i=0; i<db;i++){
 cout <<ellenfelhajok[i].getOszlop()<<"  "<<ellenfelhajok[i].getSor()<<'\n';
 }
-}
+}*/
 
 bool Jatekos::loves(int db){
-	char celpont[3], betuoszlop;
+	char celpont[10], betuoszlop;
 	int sor, oszlop;
 	cout << "Adja meg a celpontot: ";
 	cin >> celpont;
@@ -94,7 +98,8 @@ bool Jatekos::loves(int db){
 		betuoszlop = celpont[0];
 		oszlop = oszlopAlakito(betuoszlop);
 		sor = celpont[1] - '0';
-		if (ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db)){
+		if (ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db)){	
+			talalat++;
 			return true;
 		}
 		else{
@@ -109,5 +114,8 @@ bool Jatekos::loves(int db){
 	}
 }
 
+int Jatekos::getTalalat(){
+	return talalat;
+}
 
 Jatekos::~Jatekos(){}

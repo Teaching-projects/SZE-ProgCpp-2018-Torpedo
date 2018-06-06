@@ -66,14 +66,16 @@ bool Tabla::becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db){
 	}
 	for (int i = 0; i<db; i++){
 		if (sor == ellenfelhajok[i].getSor() && oszlop == ellenfelhajok[i].getOszlop()){
-			cout << "Talalat!\n";
+			cout << "Talalat! Ujra On kovetkezik!\n";
 			tabla[sor][oszlop] = 'X';
 			return true;
 		}
-		else{
-			tabla[sor][oszlop] = 'O';
-			cout << "Nem talalt!\n";
-			return true;
+		else{			
+			if (i == db-1){
+				tabla[sor][oszlop] = 'O';
+				cout << "Nem talalt!\n";
+				return false;
+			}
 		}
 	}
 

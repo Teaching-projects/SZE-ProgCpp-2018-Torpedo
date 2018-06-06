@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <ctype.h>
-#include <string.h>
+#include <string>
 #include <stdlib.h>
 #include "Tabla.hpp"
 #include "Hajo.hpp"
@@ -16,10 +16,12 @@ private:
 	Hajo hajok[10];
 	Tabla *ellenfeltabla;
 	Hajo ellenfelhajok[10];
+	int talalat;
 
 public:
 	Jatekos(string nev);
 	~Jatekos();
+	string nevKiir();
 	bool hajoBeker(int db);
 	bool ellenorzes(char *pozicio);
 	int oszlopAlakito(char betuoszlop);
@@ -30,8 +32,9 @@ public:
 	int getHajoSor(int db);
 	int getHajoOszlop(int db);
 	//teszteléshez kellet, véglegesben nem kell kiíratni
-	void kiirEllen(int db);
-
+	//void kiirEllen(int db);
+	int getTalalat();
+	
 
 };
 
