@@ -80,7 +80,14 @@ bool Tabla::becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db){
 	}
 }
 
-
+void Tabla::ellenfelTablaBeallit(int oszlop, int sor, bool talalte){
+	if (talalte){
+		tabla[sor][oszlop] = 'X';
+	}
+	else{
+		tabla[sor][oszlop] = 'O';
+	}
+}
 
 Tabla::~Tabla(){
 	for (int i = 0; i < meret; i++) {

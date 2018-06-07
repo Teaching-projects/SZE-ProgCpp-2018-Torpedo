@@ -38,7 +38,7 @@ int main(){
 	do{
 		cout << jatekos1.nevKiir() << " kovetkezik. ";
 		do{
-			lovesmod=jatekos1.loves(db);
+			lovesmod=jatekos1.loves(db, jatekos2);
 			if (lovesmod!=2){
 				cout << "Sajat tabla:\n";
 				jatekos1.sajatTablatRajzol();
@@ -52,7 +52,7 @@ int main(){
 		if ((jatekos1.getTalalat() < 2)){
 			cout << jatekos2.nevKiir() << " kovetkezik. ";
 			do{
-				lovesmod = jatekos2.loves(db);
+				lovesmod = jatekos2.loves(db, jatekos1);
 				if (lovesmod!=2){
 					cout << "Sajat tabla:\n";
 					jatekos2.sajatTablatRajzol();

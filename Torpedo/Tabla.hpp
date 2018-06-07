@@ -16,6 +16,7 @@ public:
 	void kiRajzol();
 	bool setTabla(int oszlop, int sor);
 	bool becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db);
+	void ellenfelTablaBeallit(int oszlop, int sor, bool talalte);
 
 };
 
