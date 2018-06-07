@@ -77,12 +77,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Hajo.cpp" />
+    <ClCompile Include="JatekManager.cpp" />
     <ClCompile Include="Jatekos.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tabla.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hajo.hpp" />
+    <ClInclude Include="JatekManager.hpp" />
     <ClInclude Include="Jatekos.hpp" />
     <ClInclude Include="Tabla.hpp" />
   </ItemGroup>

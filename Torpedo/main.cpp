@@ -1,14 +1,12 @@
 #include <iostream>
-#include <stdlib.h>
+#include "JatekManager.hpp"
 #include <string>
-#include "Jatekos.hpp"
-#include <conio.h>
 
 #define HAJOSZAM 10
 
 using namespace std;
 
-int main(){
+int main(){/*
 	string nev;
 	int db = 0;
 	bool ok = false;
@@ -21,7 +19,7 @@ int main(){
 		if (jatekos1.hajoBeker(db)){
 			db++;			
 		}
-	} while (db<2); //10re visszaírni
+	} while (db<2); //HAJOSZAM-ra visszaírni
 	system("cls");	
 	cout << "Adja meg a masodik jatekos nevet: ";
 	cin >> nev;	
@@ -31,7 +29,7 @@ int main(){
 		if (jatekos2.hajoBeker(db)){
 			db++;			
 		}		
-	} while (db<2); //10re visszaírni
+	} while (db<2); //HAJOSZAM-ra visszaírni
 	jatekos1.hajokatMasol(jatekos2, db);
 	jatekos2.hajokatMasol(jatekos1, db);	
 	system("cls");
@@ -67,6 +65,37 @@ int main(){
 	if (jatekos1.getTalalat() == 2){
 		cout << jatekos1.nevKiir() << " nyert! Gratulalunk!\n\n";
 	}
-	else cout << jatekos2.nevKiir() << " nyert! Gratulalunk!\n\n";
+	else cout << jatekos2.nevKiir() << " nyert! Gratulalunk!\n\n";*/
+
+	int mod;
+	char bekeres[5];
+	JatekManager jatekmanager;
+	do{
+		cout << "Valasszon a kovetkezo lehetosegek kozul a sorszamuk beirasaval:\n1: Jatekos Vs Gep\n2: Jatekos Vs Jatekos\n3: Szabalyok\n4: Kilepes\n\n";
+		cin >> bekeres;
+		if (strlen(bekeres) != 1){
+			cout << "Nem megfelelo formatum. Probalja ujra!\n\n";
+		}
+		else{
+			mod = bekeres[0] - '0';
+			if (mod == 1){
+
+			}
+			else if (mod == 2){
+				system("cls");
+				jatekmanager.JatekosVsJatekos();
+			}
+			else if (mod == 3){
+
+			}
+			else if (mod == 4){
+				cout << "Kilepest valasztotta.\n";
+			}
+			else{
+				cout << "Nincs ilyen lehetoseg. Valasszon a lehetosegek kozul.\n\n";
+			}
+		}
+
+	} while (mod != 4);
 	return 0;
 }

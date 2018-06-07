@@ -35,9 +35,6 @@ public:
 	//void kiirEllen(int db);
 	int getTalalat();
 	Tabla* getTabla();
-	
-	
-
 };
 
 #endif

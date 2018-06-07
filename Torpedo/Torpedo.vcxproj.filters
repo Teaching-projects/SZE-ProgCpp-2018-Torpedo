@@ -27,6 +27,9 @@
     <ClCompile Include="Jatekos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="JatekManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tabla.hpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Jatekos.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JatekManager.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
