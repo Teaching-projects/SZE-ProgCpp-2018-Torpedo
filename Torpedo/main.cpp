@@ -12,7 +12,8 @@ int main(){
 	string nev;
 	int db = 0;
 	bool ok = false;
-	bool sikeres;
+	//bool sikeres;
+	int lovesmod;
 	cout << "Adja meg az elso jatekos nevet: ";
 	cin >> nev;
 	Jatekos jatekos1(nev);
@@ -37,24 +38,28 @@ int main(){
 	do{
 		cout << jatekos1.nevKiir() << " kovetkezik. ";
 		do{
-			sikeres=jatekos1.loves(db);
-			cout << "Sajat tabla:\n";
-			jatekos1.sajatTablatRajzol();
-			cout << "Ellenfel  tabla:\n";
-			jatekos1.ellenfelTablatRajzol();
-		} while (sikeres && (jatekos1.getTalalat() < 2));
+			lovesmod=jatekos1.loves(db);
+			if (lovesmod!=2){
+				cout << "Sajat tabla:\n";
+				jatekos1.sajatTablatRajzol();
+				cout << "Ellenfel  tabla:\n";
+				jatekos1.ellenfelTablatRajzol();
+			}
+		} while (lovesmod!=1 && (jatekos1.getTalalat() < 2));
 		cout << jatekos1.nevKiir() << " nyomjon gombot a folytatashoz!\n\n";
 		getch();
 		system("cls");
 		if ((jatekos1.getTalalat() < 2)){
 			cout << jatekos2.nevKiir() << " kovetkezik. ";
 			do{
-				sikeres = jatekos2.loves(db);
-				cout << "Sajat tabla:\n";
-				jatekos2.sajatTablatRajzol();
-				cout << "Ellenfel  tabla:\n";
-				jatekos2.ellenfelTablatRajzol();
-			} while (sikeres && (jatekos2.getTalalat() < 2));
+				lovesmod = jatekos2.loves(db);
+				if (lovesmod!=2){
+					cout << "Sajat tabla:\n";
+					jatekos2.sajatTablatRajzol();
+					cout << "Ellenfel  tabla:\n";
+					jatekos2.ellenfelTablatRajzol();
+				}
+			} while (lovesmod!=1 && (jatekos2.getTalalat() < 2));
 			cout << jatekos2.nevKiir() << " nyomjon gombot a folytatashoz!\n\n";
 			getch();
 		}		

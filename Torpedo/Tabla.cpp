@@ -78,8 +78,9 @@ bool Tabla::becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db){
 			}
 		}
 	}
-
 }
+
+
 
 Tabla::~Tabla(){
 	for (int i = 0; i < meret; i++) {

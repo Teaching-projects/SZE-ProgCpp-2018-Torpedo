@@ -27,13 +27,14 @@ public:
 	int oszlopAlakito(char betuoszlop);
 	void sajatTablatRajzol();
 	void ellenfelTablatRajzol();
-	bool loves(int db);
+	int loves(int db);
 	void hajokatMasol(Jatekos ellenfel, int db);
 	int getHajoSor(int db);
 	int getHajoOszlop(int db);
 	//teszteléshez kellet, véglegesben nem kell kiíratni
 	//void kiirEllen(int db);
 	int getTalalat();
+	
 	
 
 };

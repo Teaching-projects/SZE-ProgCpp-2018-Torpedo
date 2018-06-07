@@ -88,7 +88,7 @@ cout <<ellenfelhajok[i].getOszlop()<<"  "<<ellenfelhajok[i].getSor()<<'\n';
 }
 }*/
 
-bool Jatekos::loves(int db){
+int Jatekos::loves(int db){
 	char celpont[10], betuoszlop;
 	int sor, oszlop;
 	cout << "Adja meg a celpontot: ";
@@ -98,24 +98,27 @@ bool Jatekos::loves(int db){
 		betuoszlop = celpont[0];
 		oszlop = oszlopAlakito(betuoszlop);
 		sor = celpont[1] - '0';
-		if (ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db)){	
+		if (ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db)){
+			//sajattabla->becsapodas(oszlop, sor, ellenfelhajok, db);
+			//ellenfel.tablaMasol(ellenfel,oszlop,sor);
 			talalat++;
-			return true;
+			return 0;
 		}
 		else{
-			return false;
+			return 1;
 		}
 
 
 	}
 	else{
 		cout << "Ervenytelen formatum.\n\n";
-		return false;
+		return 2;
 	}
 }
 
 int Jatekos::getTalalat(){
 	return talalat;
 }
+
 
 Jatekos::~Jatekos(){}
