@@ -6,18 +6,17 @@
 using namespace std;
 
 class Tabla{
-private:
-	char **tabla;
-	const int meret;
+	private:
+		char **tabla;
+		const int meret;
 
-public:
-	Tabla(int meret);
-	~Tabla();
-	void kiRajzol();
-	bool setTabla(int oszlop, int sor);
-	bool becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db);
-	void ellenfelTablaBeallit(int oszlop, int sor, bool talalte);
-
+	public:
+		Tabla(int meret);
+		~Tabla();
+		void kiRajzol();
+		bool setTabla(int oszlop, int sor);
+		bool becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db);
+		void ellenfelTablaBeallit(int oszlop, int sor, bool talalte);
 };
 
 #endif

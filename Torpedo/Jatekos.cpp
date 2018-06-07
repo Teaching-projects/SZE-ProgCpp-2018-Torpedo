@@ -22,9 +22,7 @@ bool Jatekos::hajoBeker(int db){
 		beoszlop = oszlopAlakito(betuoszlop);
 		besor = pozicio[1] - '0';
 		hajok[db].setOszlop(beoszlop);
-		hajok[db].setSor(besor);
-		//cout <<hajok[db].getOszlop();
-		//cout << hajok[db].getSor()<<"\n";
+		hajok[db].setSor(besor);		
 		if (sajattabla->setTabla(beoszlop, besor)){
 			return true;
 		}
@@ -81,12 +79,6 @@ void Jatekos::hajokatMasol(Jatekos ellenfel, int db){
 		ellenfelhajok[i].setOszlop(ellenfel.getHajoOszlop(i));
 	}
 }
-/*
-void Jatekos::kiirEllen(int db){
-for(int i=0; i<db;i++){
-cout <<ellenfelhajok[i].getOszlop()<<"  "<<ellenfelhajok[i].getSor()<<'\n';
-}
-}*/
 
 int Jatekos::loves(int db, Jatekos ellenfel){
 	char celpont[10], betuoszlop;
@@ -112,8 +104,6 @@ int Jatekos::loves(int db, Jatekos ellenfel){
 			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 			return 1;
 		}
-
-
 	}
 	else{
 		cout << "Ervenytelen formatum.\n\n";
@@ -128,6 +118,5 @@ int Jatekos::getTalalat(){
 Tabla* Jatekos::getTabla(){
 	return sajattabla;
 }
-
 
 Jatekos::~Jatekos(){}

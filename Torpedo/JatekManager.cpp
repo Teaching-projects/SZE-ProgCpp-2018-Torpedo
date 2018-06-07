@@ -1,12 +1,13 @@
-#include "JatekManager.hpp">
+#include "JatekManager.hpp"
+
+#define HAJOSZAM 10
 
 JatekManager::JatekManager(){}
 
 void JatekManager::JatekosVsJatekos(){
 	string nev;
 	int db = 0;
-	bool ok = false;
-	//bool sikeres;
+	bool ok = false;	
 	int lovesmod;
 	cout << "Adja meg az elso jatekos nevet: ";
 	cin >> nev;
@@ -15,7 +16,7 @@ void JatekManager::JatekosVsJatekos(){
 		if (jatekos1.hajoBeker(db)){
 			db++;
 		}
-	} while (db<2); //HAJOSZAM-ra visszaírni
+	} while (db<HAJOSZAM);
 	system("cls");
 	cout << "Adja meg a masodik jatekos nevet: ";
 	cin >> nev;
@@ -25,7 +26,7 @@ void JatekManager::JatekosVsJatekos(){
 		if (jatekos2.hajoBeker(db)){
 			db++;
 		}
-	} while (db<2); //HAJOSZAM-ra visszaírni
+	} while (db<HAJOSZAM); 
 	jatekos1.hajokatMasol(jatekos2, db);
 	jatekos2.hajokatMasol(jatekos1, db);
 	system("cls");
@@ -39,11 +40,11 @@ void JatekManager::JatekosVsJatekos(){
 				cout << "Ellenfel  tabla:\n";
 				jatekos1.ellenfelTablatRajzol();
 			}
-		} while (lovesmod != 1 && (jatekos1.getTalalat() < 2));
+		} while (lovesmod != 1 && (jatekos1.getTalalat() < HAJOSZAM));
 		cout << jatekos1.nevKiir() << " nyomjon gombot a folytatashoz!\n\n";
 		_getch();
 		system("cls");
-		if ((jatekos1.getTalalat() < 2)){
+		if ((jatekos1.getTalalat() < HAJOSZAM)){
 			cout << jatekos2.nevKiir() << " kovetkezik. ";
 			do{
 				lovesmod = jatekos2.loves(db, jatekos1);
@@ -53,12 +54,12 @@ void JatekManager::JatekosVsJatekos(){
 					cout << "Ellenfel  tabla:\n";
 					jatekos2.ellenfelTablatRajzol();
 				}
-			} while (lovesmod != 1 && (jatekos2.getTalalat() < 2));
+			} while (lovesmod != 1 && (jatekos2.getTalalat() < HAJOSZAM));
 			cout << jatekos2.nevKiir() << " nyomjon gombot a folytatashoz!\n\n";
 			_getch();
 		}
-	} while (jatekos1.getTalalat() < 2 && jatekos2.getTalalat() < 2);
-	if (jatekos1.getTalalat() == 2){
+	} while (jatekos1.getTalalat() < HAJOSZAM && jatekos2.getTalalat() < HAJOSZAM);
+	if (jatekos1.getTalalat() == HAJOSZAM){
 		system("cls");
 		cout << jatekos1.nevKiir() << " nyert! Gratulalunk!\n\n";
 	}

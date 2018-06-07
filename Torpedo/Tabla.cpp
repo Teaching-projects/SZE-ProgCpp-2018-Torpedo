@@ -49,6 +49,22 @@ bool Tabla::setTabla(int oszlop, int sor){
 		tabla[sor][oszlop] = 'H';
 		return true;
 	}
+	else if (sor == 0 && (tabla[sor + 1][oszlop] != 'H' && tabla[sor][oszlop - 1] != 'H' && tabla[sor][oszlop + 1] != 'H')){//elsõ sor
+		tabla[sor][oszlop] = 'H';
+		return true;
+	}
+	else if (sor == 9 && (tabla[sor - 1][oszlop] != 'H' && tabla[sor][oszlop - 1] != 'H' && tabla[sor][oszlop + 1] != 'H')){//utolsó sor
+		tabla[sor][oszlop] = 'H';
+		return true;
+	}
+	else if (oszlop == 0 && (tabla[sor - 1][oszlop] != 'H' && tabla[sor+1][oszlop] != 'H' && tabla[sor][oszlop + 1] != 'H')){//elsõ oszlop
+		tabla[sor][oszlop] = 'H';
+		return true;
+	}
+	else if (oszlop == 9 && (tabla[sor - 1][oszlop] != 'H' && tabla[sor + 1][oszlop] != 'H' && tabla[sor][oszlop - 1] != 'H')){//utolsó oszlop
+		tabla[sor][oszlop] = 'H';
+		return true;
+	}
 	else if (tabla[sor - 1][oszlop] != 'H' && tabla[sor + 1][oszlop] != 'H' && tabla[sor][oszlop - 1] != 'H' && tabla[sor][oszlop + 1] != 'H'){//többi rész
 		tabla[sor][oszlop] = 'H';
 		return true;

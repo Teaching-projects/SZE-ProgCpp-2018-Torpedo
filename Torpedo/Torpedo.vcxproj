@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Gep.cpp" />
     <ClCompile Include="Hajo.cpp" />
     <ClCompile Include="JatekManager.cpp" />
     <ClCompile Include="Jatekos.cpp" />
@@ -83,6 +84,7 @@
     <ClCompile Include="Tabla.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gep.hpp" />
     <ClInclude Include="Hajo.hpp" />
     <ClInclude Include="JatekManager.hpp" />
     <ClInclude Include="Jatekos.hpp" />
