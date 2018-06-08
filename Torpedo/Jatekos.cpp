@@ -93,9 +93,7 @@ int Jatekos::loves(int db, Jatekos ellenfel){
 		oszlop = oszlopAlakito(betuoszlop);
 		sor = celpont[1] - '0';
 		talalte = ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db);
-		if (talalte){
-			//sajattabla->becsapodas(oszlop, sor, ellenfelhajok, db);
-			//ellenfel.tablaMasol(ellenfel,oszlop,sor);
+		if (talalte){			
 			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 			talalat++;
 			return 0;
@@ -117,6 +115,41 @@ int Jatekos::getTalalat(){
 
 Tabla* Jatekos::getTabla(){
 	return sajattabla;
+}
+void Jatekos::hajokatMasolGep(Gep ellenfel, int db){
+	for (int i = 0; i<db; i++){
+		ellenfelhajok[i].setSor(ellenfel.getHajoSor(i));
+		ellenfelhajok[i].setOszlop(ellenfel.getHajoOszlop(i));
+	}
+}
+
+int Jatekos::lovesGep(int db, Gep ellenfel){
+	char celpont[10], betuoszlop;
+	int sor, oszlop;
+	bool talalte;
+
+	cout << "Adja meg a celpontot: ";
+	cin >> celpont;
+	if (strlen(celpont) == 2 && (celpont[0] == 'A' || celpont[0] == 'B' || celpont[0] == 'C' || celpont[0] == 'D' || celpont[0] == 'E' || celpont[0] == 'F' || celpont[0] == 'G' || celpont[0] == 'H'
+		|| celpont[0] == 'I' || celpont[0] == 'J') && isdigit(celpont[1])){
+		betuoszlop = celpont[0];
+		oszlop = oszlopAlakito(betuoszlop);
+		sor = celpont[1] - '0';
+		talalte = ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db);
+		if (talalte){
+			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
+			talalat++;
+			return 0;
+		}
+		else{
+			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
+			return 1;
+		}
+	}
+	else{
+		cout << "Ervenytelen formatum.\n\n";
+		return 2;
+	}
 }
 
 Jatekos::~Jatekos(){}

@@ -1,7 +1,10 @@
 #include "Gep.hpp"
+#include "Jatekos.hpp"
 
 Gep::Gep(){
 	sajattabla = new Tabla(10);
+	ellenfeltabla = new Tabla(10);
+	talalat = 0;
 }
 
 bool Gep::hajoGeneralas(){
@@ -32,5 +35,51 @@ void Gep::Kiir(){
 void Gep::TablaKiir(){
 	sajattabla->kiRajzol();
 }
+
+int Gep::getHajoOszlop(int db){
+	return hajok[db].getOszlop();
+}
+
+int Gep::getHajoSor(int db){
+	return hajok[db].getSor();
+}
+
+void Gep::hajokatMasol(Jatekos ellenfel, int db){
+	for (int i = 0; i<db; i++){
+		ellenfelhajok[i].setSor(ellenfel.getHajoSor(i));
+		ellenfelhajok[i].setOszlop(ellenfel.getHajoOszlop(i));
+	}
+}
+
+int Gep::loves(int db, Jatekos ellenfel){	
+	int sor, oszlop;
+	bool talalte;
+	srand(time(NULL));
+
+	sor = rand() % 10;
+	oszlop = rand() % 10;
+	talalte = ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db);
+	if (talalte){
+		cout << "A gep bevitt egy talalatot.\n";
+		ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
+		talalat++;
+		return 0;
+	}
+	else{
+		cout << "A gep nem talalt.\n";
+		ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
+		return 1;
+	}
+		
+}
+
+int Gep::getTalalat(){
+	return talalat;
+}
+
+Tabla* Gep::getTabla(){
+	return sajattabla;
+}
+
 
 Gep::~Gep(){}

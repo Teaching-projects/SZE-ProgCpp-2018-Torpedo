@@ -18,7 +18,7 @@ class JatekManager{
 		JatekManager();
 		~JatekManager();
 		void JatekosVsJatekos();
-
+		void JatekosVsGep();
 };
 
 #endif

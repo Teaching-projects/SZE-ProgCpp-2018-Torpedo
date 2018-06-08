@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "Tabla.hpp"
 #include "Hajo.hpp"
+#include "Gep.hpp"
 using namespace std;
 
 class Jatekos{
@@ -33,6 +34,8 @@ class Jatekos{
 		int getHajoOszlop(int db);	
 		int getTalalat();
 		Tabla* getTabla();
+		void hajokatMasolGep(Gep ellenfel, int db);
+		int lovesGep(int db, Gep ellenfel);
 };
 
 #endif

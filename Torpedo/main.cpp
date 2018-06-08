@@ -5,10 +5,12 @@
 
 using namespace std;
 
+
 int main(){	
-	int mod;
+	int mod;	
+	JatekManager jatekmanager;	
 	char bekeres[5];
-	JatekManager jatekmanager;
+	
 	do{
 		cout << "Valasszon a kovetkezo lehetosegek kozul a sorszamuk beirasaval:\n1: Jatekos Vs Gep\n2: Jatekos Vs Jatekos\n3: Szabalyok\n4: Kilepes\n\n";
 		cin >> bekeres;
@@ -18,13 +20,7 @@ int main(){
 		else{
 			mod = bekeres[0] - '0';
 			if (mod == 1){
-				Gep gep;
-				if (gep.hajoGeneralas()){
-
-				}
-				system("cls");
-				gep.Kiir();
-				gep.TablaKiir();
+				jatekmanager.JatekosVsGep();
 			}
 			else if (mod == 2){
 				system("cls");

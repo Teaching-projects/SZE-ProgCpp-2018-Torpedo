@@ -1,6 +1,6 @@
 #include "JatekManager.hpp"
 
-#define HAJOSZAM 10
+#define HAJOSZAM 3
 
 JatekManager::JatekManager(){}
 
@@ -66,6 +66,57 @@ void JatekManager::JatekosVsJatekos(){
 	else{
 		system("cls");
 		cout << jatekos2.nevKiir() << " nyert! Gratulalunk!\n\n";
+	}
+}
+void JatekManager::JatekosVsGep(){
+	string nev;
+	int db = 0, lovesmod;
+	Gep gep;
+
+	if (gep.hajoGeneralas()){}
+	system("cls");
+	cout << "Adja meg a jatekos nevet: ";
+	cin >> nev;
+	Jatekos jatekos1(nev);
+	do{
+		if (jatekos1.hajoBeker(db)){
+			db++;
+		}
+	} while (db<HAJOSZAM);
+	jatekos1.hajokatMasolGep(gep, db);
+	gep.hajokatMasol(jatekos1, db);
+	system("cls");
+	do{
+		do{
+			lovesmod = jatekos1.lovesGep(db, gep);
+			/*if (lovesmod != 2){
+				system("cls");
+				cout << "Sajat tabla:\n";
+				jatekos1.sajatTablatRajzol();
+				cout << "Ellenfel  tabla:\n";
+				jatekos1.ellenfelTablatRajzol();
+			}*/
+		} while (lovesmod != 1 && (jatekos1.getTalalat() < HAJOSZAM));
+		if ((jatekos1.getTalalat() < HAJOSZAM)){
+			system("cls");
+			do{				
+				lovesmod = gep.loves(db, jatekos1);
+				if (lovesmod != 2){					
+					cout << "Sajat tabla:\n";
+					jatekos1.sajatTablatRajzol();
+					cout << "Ellenfel  tabla:\n";
+					jatekos1.ellenfelTablatRajzol();
+				}
+			} while (lovesmod != 1 && (gep.getTalalat() < HAJOSZAM));
+		}
+	} while (jatekos1.getTalalat() < HAJOSZAM && gep.getTalalat() < HAJOSZAM);
+	if (jatekos1.getTalalat() == HAJOSZAM){
+		system("cls");
+		cout << jatekos1.nevKiir() << " nyert! Gratulalunk!\n\n";
+	}
+	else{
+		system("cls");
+		cout << "On vesztett!\n\n";
 	}
 }
 
