@@ -53,23 +53,24 @@ void Gep::hajokatMasol(Jatekos ellenfel, int db){
 
 int Gep::loves(int db, Jatekos ellenfel){	
 	int sor, oszlop;
-	bool talalte;
+	int talalte;
 	srand(time(NULL));
 
 	sor = rand() % 10;
 	oszlop = rand() % 10;
 	talalte = ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db);
-	if (talalte){
+	if (talalte==0){
 		cout << "A gep bevitt egy talalatot.\n";
 		ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 		talalat++;
 		return 0;
 	}
-	else{
+	else if(talalte==1){
 		cout << "A gep nem talalt.\n";
 		ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 		return 1;
 	}
+	else return 2;
 		
 }
 

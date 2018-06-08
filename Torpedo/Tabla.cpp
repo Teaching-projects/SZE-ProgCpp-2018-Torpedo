@@ -75,32 +75,32 @@ bool Tabla::setTabla(int oszlop, int sor){
 	}
 }
 
-bool Tabla::becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db){
+int Tabla::becsapodas(int oszlop, int sor, Hajo *ellenfelhajok, int db){
 	if (tabla[sor][oszlop] == 'X' || tabla[sor][oszlop] == 'O'){
 		cout << "Ide mar erkezett talalat.\n";
-		return false;
+		return 2;
 	}
 	for (int i = 0; i<db; i++){
 		if (sor == ellenfelhajok[i].getSor() && oszlop == ellenfelhajok[i].getOszlop()){
 			cout << "Talalat! Ujra On kovetkezik!\n";
 			tabla[sor][oszlop] = 'X';
-			return true;
+			return 0;
 		}
 		else{			
 			if (i == db-1){
 				tabla[sor][oszlop] = 'O';
 				cout << "Nem talalt!\n";
-				return false;
+				return 1;
 			}
 		}
 	}
 }
 
-void Tabla::ellenfelTablaBeallit(int oszlop, int sor, bool talalte){
-	if (talalte){
+void Tabla::ellenfelTablaBeallit(int oszlop, int sor, int talalte){
+	if (talalte==0){
 		tabla[sor][oszlop] = 'X';
 	}
-	else{
+	else if(talalte==1){
 		tabla[sor][oszlop] = 'O';
 	}
 }

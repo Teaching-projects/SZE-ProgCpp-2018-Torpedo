@@ -126,7 +126,7 @@ void Jatekos::hajokatMasolGep(Gep ellenfel, int db){
 int Jatekos::lovesGep(int db, Gep ellenfel){
 	char celpont[10], betuoszlop;
 	int sor, oszlop;
-	bool talalte;
+	int talalte;
 
 	cout << "Adja meg a celpontot: ";
 	cin >> celpont;
@@ -135,20 +135,22 @@ int Jatekos::lovesGep(int db, Gep ellenfel){
 		betuoszlop = celpont[0];
 		oszlop = oszlopAlakito(betuoszlop);
 		sor = celpont[1] - '0';
+		
 		talalte = ellenfeltabla->becsapodas(oszlop, sor, ellenfelhajok, db);
-		if (talalte){
+		if (talalte==0){
 			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 			talalat++;
 			return 0;
 		}
-		else{
+		else if(talalte==1){
 			ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 			return 1;
 		}
+		else return 2;
 	}
 	else{
 		cout << "Ervenytelen formatum.\n\n";
-		return 2;
+		return 3;
 	}
 }
 

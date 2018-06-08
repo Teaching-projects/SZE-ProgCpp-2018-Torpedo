@@ -88,14 +88,7 @@ void JatekManager::JatekosVsGep(){
 	system("cls");
 	do{
 		do{
-			lovesmod = jatekos1.lovesGep(db, gep);
-			/*if (lovesmod != 2){
-				system("cls");
-				cout << "Sajat tabla:\n";
-				jatekos1.sajatTablatRajzol();
-				cout << "Ellenfel  tabla:\n";
-				jatekos1.ellenfelTablatRajzol();
-			}*/
+			lovesmod = jatekos1.lovesGep(db, gep);			
 		} while (lovesmod != 1 && (jatekos1.getTalalat() < HAJOSZAM));
 		if ((jatekos1.getTalalat() < HAJOSZAM)){
 			system("cls");
@@ -107,7 +100,7 @@ void JatekManager::JatekosVsGep(){
 					cout << "Ellenfel  tabla:\n";
 					jatekos1.ellenfelTablatRajzol();
 				}
-			} while (lovesmod != 1 && (gep.getTalalat() < HAJOSZAM));
+			} while (lovesmod != 1  && (gep.getTalalat() < HAJOSZAM));
 		}
 	} while (jatekos1.getTalalat() < HAJOSZAM && gep.getTalalat() < HAJOSZAM);
 	if (jatekos1.getTalalat() == HAJOSZAM){
