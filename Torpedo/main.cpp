@@ -19,15 +19,15 @@ int main(){
 		}
 		else{
 			mod = bekeres[0] - '0';
+			system("cls");
 			if (mod == 1){
 				jatekmanager.JatekosVsGep();
 			}
-			else if (mod == 2){
-				system("cls");
+			else if (mod == 2){				
 				jatekmanager.JatekosVsJatekos();
 			}
-			else if (mod == 3){
-
+			else if (mod == 3){				
+				jatekmanager.Fajlbeolvasas();
 			}
 			else if (mod == 4){
 				cout << "Kilepest valasztotta.\n";
@@ -36,7 +36,6 @@ int main(){
 				cout << "Nincs ilyen lehetoseg. Valasszon a lehetosegek kozul.\n\n";
 			}
 		}
-
 	} while (mod != 4);
 	return 0;
 }

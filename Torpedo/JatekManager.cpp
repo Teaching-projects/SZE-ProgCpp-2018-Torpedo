@@ -1,6 +1,7 @@
 #include "JatekManager.hpp"
 
-#define HAJOSZAM 3
+#define HAJOSZAM 10
+#define FILE "Szabalyzat.txt"
 
 JatekManager::JatekManager(){}
 
@@ -111,6 +112,20 @@ void JatekManager::JatekosVsGep(){
 		system("cls");
 		cout << "On vesztett!\n\n";
 	}
+}
+
+void JatekManager::Fajlbeolvasas(){
+	string sor;
+	ifstream sajatfajl("Szabalyzat.txt");
+	if (sajatfajl.is_open()){
+		while (getline(sajatfajl, sor)){
+			cout << sor << '\n';
+		}
+		cout << '\n';
+		_getch();
+		sajatfajl.close();
+	}
+	else cout << "Nem lehet megnyitni a fajlt\n";
 }
 
 JatekManager::~JatekManager(){}

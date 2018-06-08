@@ -7,6 +7,7 @@
 #include "Jatekos.hpp"
 #include <conio.h>
 #include "Gep.hpp"
+#include <fstream>
 
 #define HAJOSZAM 10
 
@@ -19,6 +20,7 @@ class JatekManager{
 		~JatekManager();
 		void JatekosVsJatekos();
 		void JatekosVsGep();
+		void Fajlbeolvasas();
 };
 
 #endif

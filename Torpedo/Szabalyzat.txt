@@ -1,0 +1,3 @@
+Szabalyzat:
+Torpedo jatek: 10x10-es mezon kell 10db hajot elhelyezni. Az nyer aki elobb eltalalja mind a 10 hajot. A hajok vizszintesen es fuggolegesen nem kerulhetnek egymas melle. A tippeles felvaltva tortenik, azonban ha az egyik fel talalatot szerez, akkor ismet tippelhet.
+A kovetkezo formatumban kell megadni a hajok poziciojat, valamint a loves koordinatait: A1, ahol az elsõ karakter A es J kozotti nagy betu, a masodik karakter 0 es 9 kozotti lehet.
