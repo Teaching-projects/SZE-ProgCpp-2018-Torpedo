@@ -9,8 +9,7 @@ Gep::Gep(){
 
 bool Gep::hajoGeneralas(){
 	srand(time(NULL));
-	int segedoszlop, segedsor;
-	
+	int segedoszlop, segedsor;	
 
 	for (int i = 0; i < 10; i++){
 		segedoszlop = rand() % 10;
@@ -24,12 +23,6 @@ bool Gep::hajoGeneralas(){
 		}
 	}
 	return true;
-}
-
-void Gep::Kiir(){
-	for (int i = 0; i < 10; i++){
-		cout << hajok[i].getSor() << '\t' << hajok[i].getOszlop()<<'\n';
-	}
 }
 
 void Gep::TablaKiir(){
@@ -70,8 +63,7 @@ int Gep::loves(int db, Jatekos ellenfel){
 		ellenfel.getTabla()->ellenfelTablaBeallit(oszlop, sor, talalte);
 		return 1;
 	}
-	else return 2;
-		
+	else return 2;		
 }
 
 int Gep::getTalalat(){
@@ -81,6 +73,5 @@ int Gep::getTalalat(){
 Tabla* Gep::getTabla(){
 	return sajattabla;
 }
-
 
 Gep::~Gep(){}

@@ -22,7 +22,6 @@ class Gep{
 		Gep();
 		~Gep();
 		bool hajoGeneralas();
-		void Kiir();
 		void TablaKiir();
 		int getHajoSor(int db);
 		int getHajoOszlop(int db);

@@ -18,5 +18,4 @@ void Hajo::setOszlop(int beoszlop){
 	oszlop = beoszlop;
 }
 
-
 Hajo::~Hajo(){}
